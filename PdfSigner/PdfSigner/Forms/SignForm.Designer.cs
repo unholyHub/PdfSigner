@@ -215,6 +215,7 @@
             this.gbxPdfFields.Controls.Add(this.btnCity);
             this.gbxPdfFields.Controls.Add(this.btnZipCode);
             this.gbxPdfFields.Controls.Add(this.btnStateProv);
+            this.gbxPdfFields.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbxPdfFields.Location = new System.Drawing.Point(12, 12);
             this.gbxPdfFields.Name = "gbxPdfFields";
             this.gbxPdfFields.Size = new System.Drawing.Size(591, 144);
@@ -224,16 +225,19 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSave.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(637, 114);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(150, 32);
+            this.btnSave.Size = new System.Drawing.Size(150, 42);
             this.btnSave.TabIndex = 26;
             this.btnSave.Text = "Save PDF";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.SaveBtnClick);
             // 
             // SignForm

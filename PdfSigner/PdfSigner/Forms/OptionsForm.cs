@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using PdfSigner.Properties;
 
 namespace PdfSigner
 {
@@ -7,6 +8,13 @@ namespace PdfSigner
         public OptionsForm()
         {
             InitializeComponent();
+            this.Icon = Resources.app_icon___bck;
+            this.Name = "Options";
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
         }
 
         private void btnTextFileLocation_Click(object sender, System.EventArgs e)

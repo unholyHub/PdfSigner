@@ -9,6 +9,7 @@ using PdfDocument = PdfiumViewer.PdfDocument;
 using Point = System.Drawing.Point;
 using Florentis;
 using PdfiumViewer;
+using PdfSigner.Properties;
 
 namespace PdfSigner.Forms
 {
@@ -52,6 +53,7 @@ namespace PdfSigner.Forms
         {
 
             InitializeComponent();
+            this.Icon = Resources.app_icon___bck;
             pdfViewer.Location = new Point(12, 162);
             pdfViewer.Size = new Size(781, 341);
             pdfViewer.ShowBookmarks = false;

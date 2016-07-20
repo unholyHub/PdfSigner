@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using PdfSigner.Properties;
 
-namespace PdfSigner
+namespace PdfSignerUpdater
 {
     /// <summary>
     /// Class for checking and notifying the user for newer version of the application.
@@ -142,11 +138,11 @@ namespace PdfSigner
         /// <summary>
         /// Informs the user for a new version of the application.
         /// </summary>
-        private static void InformAboutNewVersion()
+        private void InformAboutNewVersion()
         {
             //TODO: start update process
-            MessageBox.Show("Informaboutnewversion");
-            Process.Start("PdfSignerUpdater.exe");
+            Console.WriteLine("Informatn new ver");
+            //MessageBox.Show("Informaboutnewversion");
         }
 
         /// <summary>
@@ -154,30 +150,30 @@ namespace PdfSigner
         /// </summary>
         private void LoadLastUpdateCheckFromFile()
         {
-            DataFunctions.LoadStringFromFile(this.UpdateFilePath);
-            string loadedString = DataFunctions.LoadedString;
+            //DataFunctions.LoadStringFromFile(this.UpdateFilePath);
+            //string loadedString = DataFunctions.LoadedString;
 
-            if (string.IsNullOrEmpty(loadedString))
-            {
-                loadedString = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
-            }
+            //if (string.IsNullOrEmpty(loadedString))
+            //{
+            //    loadedString = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            //}
 
-            DateTime outputDateTime;
-            bool result = DateTime.TryParse(loadedString, out outputDateTime);
+            //DateTime outputDateTime;
+            //bool result = DateTime.TryParse(loadedString, out outputDateTime);
 
-            if (!result)
-            {
-                return;
-            }
+            //if (!result)
+            //{
+            //    return;
+            //}
 
-            TimeSpan timeDifference = DateTime.Now - outputDateTime;
+            //TimeSpan timeDifference = DateTime.Now - outputDateTime;
 
-            if (timeDifference.Hours >= 24)
-            {
-                InformAboutNewVersion();
-            }
+            //if (timeDifference.Hours >= 24)
+            //{
+            //    this.InformAboutNewVersion();
+            //}
 
-            DataFunctions.SaveTextDataToFile(this.UpdateFilePath, loadedString, false);
+            //DataFunctions.SaveTextDataToFile(this.UpdateFilePath, loadedString, false);
         }
 
         /// <summary>
@@ -185,30 +181,30 @@ namespace PdfSigner
         /// </summary>
         private void CompareVersionNumbers()
         {
-            Version currentVersion = new Version(Settings.Instance.AssemblyVersion);
-            Version downloadedVersion = new Version(this.DownloadedVersionNumber);
+            //Version currentVersion = new Version(Settings.Instance.AssemblyVersion);
+            //Version downloadedVersion = new Version(this.DownloadedVersionNumber);
 
-            int result = currentVersion.CompareTo(downloadedVersion);
+            //int result = currentVersion.CompareTo(downloadedVersion);
 
-            switch (result)
-            {
-                case -1:
-                    {
-                        InformAboutNewVersion();
-                        break;
-                    }
+            //switch (result)
+            //{
+            //    case -1:
+            //        {
+            //            this.InformAboutNewVersion();
+            //            break;
+            //        }
 
-                case 0:
-                case 1:
-                    {
-                        break;
-                    }
+            //    case 0:
+            //    case 1:
+            //        {
+            //            break;
+            //        }
 
-                default:
-                    {
-                        break;
-                    }
-            }
+            //    default:
+            //        {
+            //            break;
+            //        }
+            //}
         }
 
         /// <summary>
@@ -269,7 +265,6 @@ namespace PdfSigner
         private void SaveLastUpdateCheckToFile()
         {
             this.LastUpdateCheck = DateTime.Now;
-            DataFunctions.SaveTextDataToFile(this.UpdateFilePath, this.LastUpdateCheck.ToString(DateTimeFormat, CultureInfo.InvariantCulture), false);
         }
     }
 }

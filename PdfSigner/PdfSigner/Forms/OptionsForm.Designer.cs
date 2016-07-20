@@ -100,7 +100,7 @@
             this.Controls.Add(this.txtTextFileLocation);
             this.Controls.Add(this.btnTextFileLocation);
             this.Name = "OptionsForm";
-            this.Text = "OptionsForm";
+            this.Text = "Options";
             this.Load += new System.EventHandler(this.OptionsForm_Load);
             this.Shown += new System.EventHandler(this.OptionsForm_Shown);
             this.ResumeLayout(false);

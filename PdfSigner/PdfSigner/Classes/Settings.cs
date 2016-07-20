@@ -79,6 +79,11 @@ namespace PdfSigner
         /// <exception cref="AppDomainUnloadedException">The operation is attempted on an unloaded application domain. </exception>
         public bool Load()
         {
+            if (!File.Exists(SettingsPath))
+            {
+                return false;
+            }
+
             string[] load = File.ReadAllLines(SettingsPath);
 
             try
