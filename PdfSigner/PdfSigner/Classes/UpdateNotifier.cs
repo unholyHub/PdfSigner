@@ -145,7 +145,7 @@ namespace PdfSigner
         private static void InformAboutNewVersion()
         {
             //TODO: start update process
-            MessageBox.Show("Informaboutnewversion");
+            //MessageBox.Show("Informaboutnewversion");
             Process.Start("PdfSignerUpdater.exe");
         }
 

@@ -50,7 +50,7 @@ namespace PdfSigner.Classes
         private static void InitUpdateTimer()
         {
             updateTimer = new System.Timers.Timer();
-            //updateTimer.Interval = 24 * 60 * 60 * 1000; // 24 hours
+            updateTimer.Interval = 24 * 60 * 60 * 1000; // 24 hours
             //updateTimer.Interval = 5 * 1000; // 5 sec
 
             updateTimer.Elapsed += new ElapsedEventHandler(UpdateNotifyTimerElapsed);
@@ -64,7 +64,7 @@ namespace PdfSigner.Classes
         /// <param name="e">The <see cref="EventArgs"/> e.</param>
         private static void UpdateNotifyTimerElapsed(object sender, ElapsedEventArgs e)
         {
-            //UpdateNotifier.Instance.NotifyForUpdate();
+            UpdateNotifier.Instance.NotifyForUpdate();
         }
 
 
