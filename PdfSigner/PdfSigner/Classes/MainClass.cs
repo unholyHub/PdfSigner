@@ -1,16 +1,16 @@
 ﻿using System;
+using System.Resources;
 using System.Timers;
 using System.Windows.Forms;
 using PdfSigner.Forms;
 using PdfSigner.Properties;
-using Timer = System.Timers.Timer;
 
 namespace PdfSigner.Classes
 {
     public class ProcessIcon : IDisposable
     {
         ContextMenuStrip contextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
-        ToolStripMenuItem miStartLiking = new System.Windows.Forms.ToolStripMenuItem();
+        ToolStripMenuItem miOpenPdfForm = new System.Windows.Forms.ToolStripMenuItem();
         ToolStripSeparator toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
         ToolStripMenuItem miOptions = new System.Windows.Forms.ToolStripMenuItem();
         ToolStripSeparator toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -72,7 +72,7 @@ namespace PdfSigner.Classes
         {
 
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.miStartLiking,
+            this.miOpenPdfForm,
             this.toolStripSeparator2,
             this.miOptions,
             this.toolStripSeparator1,
@@ -86,7 +86,7 @@ namespace PdfSigner.Classes
             // contextMenuStrip
             // 
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.miStartLiking,
+            this.miOpenPdfForm,
             this.toolStripSeparator2,
             this.miOptions,
             this.toolStripSeparator1,
@@ -98,10 +98,11 @@ namespace PdfSigner.Classes
             // 
             // miStartLiking
             // 
-            this.miStartLiking.Name = "miStartLiking";
-            this.miStartLiking.Size = new System.Drawing.Size(163, 22);
-            this.miStartLiking.Text = "Open PDF Signer";
-            this.miStartLiking.Click += new System.EventHandler(this.OpenPdfSignFormMenuItemClick);
+            this.miOpenPdfForm.Name = "miOpenPdfSigner";
+            this.miOpenPdfForm.Size = new System.Drawing.Size(163, 22);
+            this.miOpenPdfForm.Text = "Open PDF Signer";
+            this.miOpenPdfForm.Image = Resources.add_sign;
+            this.miOpenPdfForm.Click += new System.EventHandler(this.OpenPdfSignFormMenuItemClick);
             // 
             // toolStripSeparator2
             // 
@@ -113,6 +114,7 @@ namespace PdfSigner.Classes
             this.miOptions.Name = "miOptions";
             this.miOptions.Size = new System.Drawing.Size(163, 22);
             this.miOptions.Text = "Options";
+            this.miOptions.Image = Resources.options;
             this.miOptions.Click += new System.EventHandler(this.miAbout_Click);
             // 
             // toolStripSeparator1
@@ -124,6 +126,8 @@ namespace PdfSigner.Classes
             // 
             this.miAbout.Name = "miAbout";
             this.miAbout.Size = new System.Drawing.Size(163, 22);
+            this.miAbout.Image = Resources.about;
+            this.miAbout.Click += new EventHandler(this.AboutMenuItemClick);
             this.miAbout.Text = "About";
             // 
             // toolStripSeparator3
@@ -136,7 +140,17 @@ namespace PdfSigner.Classes
             this.miExit.Name = "miExit";
             this.miExit.Size = new System.Drawing.Size(163, 22);
             this.miExit.Text = "Exit";
+            this.miExit.Image = Resources.exit;
+
             this.miExit.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
+        }
+
+        private void AboutMenuItemClick(object sender, EventArgs e)
+        {
+            using (AboutBox ab  = new AboutBox())
+            {
+                ab.ShowDialog();
+            }
         }
 
         private void ExitToolStripMenuItemClick(object sender, EventArgs e)

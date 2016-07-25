@@ -92,10 +92,17 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\DataFunctions.cs" />
     <Compile Include="Classes\Person.cs" />
     <Compile Include="Classes\UpdateNotifier.cs" />
@@ -137,6 +144,9 @@
     <Compile Include="Classes\WebClientExtent.cs">
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="Forms\AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\InputForm.resx">
       <DependentUpon>InputForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,6 +211,11 @@
   <ItemGroup>
     <Content Include="app_icon - bck.ico" />
     <None Include="images\save-button.png" />
+    <None Include="Menu Items\about.png" />
+    <None Include="Menu Items\add_window_name.png" />
+    <None Include="Menu Items\exit.png" />
+    <None Include="Menu Items\options.png" />
+    <None Include="Resources\Orignal Logo.jpg" />
     <Content Include="x64\pdfium.dll" />
     <Content Include="x86\pdfium.dll" />
   </ItemGroup>
